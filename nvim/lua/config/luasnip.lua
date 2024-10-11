@@ -52,4 +52,4 @@ snippet_from_file(coding_library_path .. "/maths/modnum.cpp", "modnum", "Modnum"
 
 snippet_from_file(coding_library_path .. "/strings/hash.cpp", "rollinghash", "Hash")
 
-snippet_from_file(coding_library_path .. "/default_code.cpp", "cptemp", "Competitive Programming Template")
+snippet_from_file(coding_library_path .. "/template.cpp", "cptemp", "Competitive Programming Template")
