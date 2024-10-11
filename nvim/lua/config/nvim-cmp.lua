@@ -39,6 +39,7 @@ cmp.setup({
             vim_item.menu = ({
                 nvim_lsp = '[lsp]',
                 path = '[path]',
+                luasnip = '[snippet]'
             })[entry.source.name]
             return vim_item
         end,
