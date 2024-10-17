@@ -21,10 +21,6 @@
      ```bash
      git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
      ```
-   - Install [catppuccin for tmux](https://github.com/catppuccin/tmux):
-     ```bash
-     git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
-     ```
 
 # Instalation
 
