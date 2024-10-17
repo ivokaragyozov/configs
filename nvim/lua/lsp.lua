@@ -21,26 +21,26 @@ require('mason-lspconfig').setup({
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local lspconfig = require('lspconfig')
 
-vim.keymap.set('n', '.e', vim.diagnostic.open_float, { desc = "error details" })
-vim.keymap.set('n', '.]', vim.diagnostic.goto_prev, { desc = "jump to previous error" })
-vim.keymap.set('n', '.[', vim.diagnostic.goto_next, { desc = "jump to next error" })
-vim.keymap.set('n', '.q', vim.diagnostic.setloclist, { desc = "show error list" })
+vim.keymap.set('n', ' e', vim.diagnostic.open_float, { desc = "error details" })
+vim.keymap.set('n', ' ]', vim.diagnostic.goto_prev, { desc = "jump to previous error" })
+vim.keymap.set('n', ' [', vim.diagnostic.goto_next, { desc = "jump to next error" })
+vim.keymap.set('n', ' q', vim.diagnostic.setloclist, { desc = "show error list" })
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local clangd_on_attach = function(_, bufnr)
+local on_attach = function(_, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    vim.keymap.set('n', '.gD', vim.lsp.buf.declaration, { desc = "go to declaration" })
-    vim.keymap.set('n', '.gd', vim.lsp.buf.definition, { desc = "go to definition" })
-    vim.keymap.set('n', '.K', vim.lsp.buf.hover, { desc = "hover" })
-    vim.keymap.set('n', '.gI', vim.lsp.buf.implementation, { desc = "go to implementation" })
-    vim.keymap.set('n', '.D', vim.lsp.buf.type_definition, { desc = "type definition" })
-    vim.keymap.set('n', '.rn', vim.lsp.buf.rename, { desc = "rename" })
-    vim.keymap.set('n', '.ca', vim.lsp.buf.code_action, { desc = "code actions" })
-    vim.keymap.set('n', '.gr', vim.lsp.buf.references, { desc = "references" })
-    vim.keymap.set("n", ".f", function()
+    vim.keymap.set('n', ' gD', vim.lsp.buf.declaration, { desc = "go to declaration" })
+    vim.keymap.set('n', ' gd', vim.lsp.buf.definition, { desc = "go to definition" })
+    vim.keymap.set('n', ' K', vim.lsp.buf.hover, { desc = "hover" })
+    vim.keymap.set('n', ' gI', vim.lsp.buf.implementation, { desc = "go to implementation" })
+    vim.keymap.set('n', ' D', vim.lsp.buf.type_definition, { desc = "type definition" })
+    vim.keymap.set('n', ' rn', vim.lsp.buf.rename, { desc = "rename" })
+    vim.keymap.set('n', ' ca', vim.lsp.buf.code_action, { desc = "code actions" })
+    vim.keymap.set('n', ' gr', vim.lsp.buf.references, { desc = "references" })
+    vim.keymap.set("n", " f", function()
         vim.lsp.buf.format({ async = true })
     end, { desc = "format" })
 end
@@ -48,7 +48,7 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lspconfig.clangd.setup({
-    on_attach = clangd_on_attach,
+    on_attach = on_attach,
     capabilities = capabilities
 })
 
@@ -81,7 +81,7 @@ lspconfig.lua_ls.setup({
             }
         })
     end,
-    on_attach = clangd_on_attach,
+    on_attach = on_attach,
     capabilities = capabilities,
     settings = {
         Lua = {}
