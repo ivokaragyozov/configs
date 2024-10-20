@@ -22,7 +22,7 @@
      git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
      ```
 
-# Instalation
+# Installation
 
 1. Clone the repo into your desired configs folder:
    ```bash
