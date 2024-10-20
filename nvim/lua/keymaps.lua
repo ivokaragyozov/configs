@@ -1,1 +1,1 @@
-vim.keymap.set('n', '<ESC>', "<cmd>noh<cr>", {})
+vim.keymap.set('n', '<ESC>', '<cmd>noh<cr>', {})

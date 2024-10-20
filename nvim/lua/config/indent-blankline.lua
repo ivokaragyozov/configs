@@ -2,7 +2,7 @@ local ibl = require('ibl')
 
 ibl.setup({
     indent = {
-        char = "▏",
+        char = '▏',
     },
     scope = {
         show_start = false,

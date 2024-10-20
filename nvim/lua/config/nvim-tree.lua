@@ -5,15 +5,15 @@ nvimtree.setup({
         dotfiles = true
     },
     view = {
-        side = "left",
+        side = 'left',
         number = false,
         relativenumber = false,
-        signcolumn = "yes",
+        signcolumn = 'yes',
         width = 30
     },
 })
 
-local wk = require("which-key")
+local wk = require('which-key')
 wk.add({
-    { "<leader>e", "<cmd>NvimTreeFocus<cr>", desc = "focus NvimTree" },
+    { '<leader>e', '<cmd>NvimTreeFocus<cr>', desc = 'focus NvimTree' },
 })

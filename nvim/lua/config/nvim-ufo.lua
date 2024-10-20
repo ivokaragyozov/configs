@@ -7,7 +7,7 @@ vim.o.foldenable = true
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
-local ufo = require("ufo")
+local ufo = require('ufo')
 
 ufo.setup({
     provider_selector = function(bufnr, filetype, buftype)
