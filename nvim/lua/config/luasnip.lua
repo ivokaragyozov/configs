@@ -39,17 +39,17 @@ end
 
 local coding_library_path = '/Users/ivokaragyozov/Documents/cp/coding-library'
 
-snippet_from_file(coding_library_path .. '/data-structures/fenwick_tree.cpp', 'fenwick', 'Fenwick Tree')
-snippet_from_file(coding_library_path .. '/data-structures/segment_tree.cpp', 'segtree', 'Segment Tree')
-snippet_from_file(coding_library_path .. '/data-structures/treap.cpp', 'treap', 'Treap')
-snippet_from_file(coding_library_path .. '/data-structures/implicit_treap.cpp', 'imptreap', 'Implicit Treap')
-snippet_from_file(coding_library_path .. '/data-structures/suffix_array.cpp', 'suffarr', 'Suffix Array')
+snippet_from_file(coding_library_path .. '/data-structures/fenwick_tree.hpp', 'fenwick', 'Fenwick Tree')
+snippet_from_file(coding_library_path .. '/data-structures/segment_tree.hpp', 'segtree', 'Segment Tree')
+snippet_from_file(coding_library_path .. '/data-structures/treap.hpp', 'treap', 'Treap')
+snippet_from_file(coding_library_path .. '/data-structures/implicit_treap.hpp', 'imptreap', 'Implicit Treap')
 
-snippet_from_file(coding_library_path .. '/graphs/max_flow.cpp', 'maxflow', 'Max Flow')
-snippet_from_file(coding_library_path .. '/graphs/scc.cpp', 'scc', 'Strongly Connected Components')
+snippet_from_file(coding_library_path .. '/graphs/max_flow.hpp', 'maxflow', 'Max Flow')
+snippet_from_file(coding_library_path .. '/graphs/scc.hpp', 'scc', 'Strongly Connected Components')
 
-snippet_from_file(coding_library_path .. '/maths/modnum.cpp', 'modnum', 'Modnum')
+snippet_from_file(coding_library_path .. '/maths/modnum.hpp', 'modnum', 'Modnum')
 
-snippet_from_file(coding_library_path .. '/strings/hash.cpp', 'hashing', 'Hash')
+snippet_from_file(coding_library_path .. '/strings/hash.hpp', 'hashing', 'Hash')
+snippet_from_file(coding_library_path .. '/strings/suffix_array.hpp', 'suffarr', 'Suffix Array')
 
 snippet_from_file(coding_library_path .. '/template.cpp', 'cptemp', 'Competitive Programming Template')
