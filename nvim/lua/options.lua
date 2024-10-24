@@ -26,6 +26,9 @@ vim.opt.smartcase = true
 -- indentation
 vim.opt.smartindent = true
 
+-- menus
+vim.opt.completeopt = "menuone,noselect"
+
 -- leader
 vim.g.mapleader = ','
 

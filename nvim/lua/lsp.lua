@@ -21,19 +21,16 @@ require('mason-lspconfig').setup({
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local lspconfig = require('lspconfig')
 
-vim.keymap.set('n', ' e', vim.diagnostic.open_float, { desc = 'error details' })
-vim.keymap.set('n', ' ]', vim.diagnostic.goto_prev, { desc = 'jump to previous error' })
-vim.keymap.set('n', ' [', vim.diagnostic.goto_next, { desc = 'jump to next error' })
-vim.keymap.set('n', ' q', vim.diagnostic.setloclist, { desc = 'show error list' })
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(_, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
+local on_attach = function()
+    vim.keymap.set('n', ' ]', vim.diagnostic.goto_prev, { desc = 'jump to previous error' })
+    vim.keymap.set('n', ' [', vim.diagnostic.goto_next, { desc = 'jump to next error' })
+    vim.keymap.set('n', ' q', vim.diagnostic.setloclist, { desc = 'show error list' })
     vim.keymap.set('n', ' gD', vim.lsp.buf.declaration, { desc = 'go to declaration' })
     vim.keymap.set('n', ' gd', vim.lsp.buf.definition, { desc = 'go to definition' })
+    vim.keymap.set('n', ' gs', vim.lsp.buf.signature_help, { desc = 'show signature help' })
     vim.keymap.set('n', ' K', vim.lsp.buf.hover, { desc = 'hover' })
     vim.keymap.set('n', ' gI', vim.lsp.buf.implementation, { desc = 'go to implementation' })
     vim.keymap.set('n', ' D', vim.lsp.buf.type_definition, { desc = 'type definition' })
@@ -45,9 +42,12 @@ local on_attach = function(_, bufnr)
     end, { desc = 'format' })
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 lspconfig.clangd.setup({
+    cmd = {
+        'clangd', '--completion-style=detailed', '--all-scopes-completion'
+    },
     on_attach = on_attach,
     capabilities = capabilities
 })

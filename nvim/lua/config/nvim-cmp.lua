@@ -5,6 +5,7 @@
 -- end
 
 local cmp = require('cmp')
+local lspkind = require('lspkind')
 
 cmp.setup({
     snippet = {
@@ -34,19 +35,23 @@ cmp.setup({
         end,
     }),
     formatting = {
-        fields = { 'abbr', 'menu' },
-        format = function(entry, vim_item)
-            vim_item.menu = ({
-                nvim_lsp = '[lsp]',
-                path = '[path]',
-                luasnip = '[snippet]'
-            })[entry.source.name]
-            return vim_item
-        end,
+        fields = { 'abbr', 'kind', 'menu' },
+        format = lspkind.cmp_format({
+            mode = 'symbol_text',
+            maxwidth = 50,
+            ellipsis_char = '...',
+            menu = {
+                path = '[Path]',
+                nvim_lsp = '[LSP]',
+                luasnip = '[Snippet]',
+                nvim_lsp_signature_help = '[Signature]'
+            }
+        })
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'path' },
-        { name = 'luasnip' }
+        { name = 'luasnip' },
+        { name = 'nvim_lsp_signature_help' }
     })
 })
