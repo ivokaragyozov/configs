@@ -25,6 +25,7 @@ local lspconfig = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function()
+    vim.keymap.set('n', ' e', vim.diagnostic.open_float, { desc = 'error details' })
     vim.keymap.set('n', ' ]', vim.diagnostic.goto_prev, { desc = 'jump to previous error' })
     vim.keymap.set('n', ' [', vim.diagnostic.goto_next, { desc = 'jump to next error' })
     vim.keymap.set('n', ' q', vim.diagnostic.setloclist, { desc = 'show error list' })
@@ -46,7 +47,10 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 lspconfig.clangd.setup({
     cmd = {
-        'clangd', '--completion-style=detailed', '--all-scopes-completion'
+        'clangd', '--completion-style=detailed', '--all-scopes-completion', '-header-insertion=never'
+    },
+    init_options = {
+        fallbackFlags = { '-std=c++20', '-I/usr/local/include' },
     },
     on_attach = on_attach,
     capabilities = capabilities
