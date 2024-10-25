@@ -9,7 +9,7 @@ require('mason').setup({
 })
 
 require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'clangd' },
+    ensure_installed = { 'lua_ls', 'clangd', 'pyright' },
 })
 
 -- Set different settings for different languages' LSP
@@ -50,7 +50,7 @@ lspconfig.clangd.setup({
         'clangd', '--completion-style=detailed', '--all-scopes-completion', '-header-insertion=never'
     },
     init_options = {
-        fallbackFlags = { '-std=c++20', '-I/usr/local/include' },
+        fallbackFlags = { '-std=c++20', '-I/usr/local/include', '-I/Users/ivokaragyozov/Documents/cp/coding-library' },
     },
     on_attach = on_attach,
     capabilities = capabilities
@@ -82,4 +82,9 @@ lspconfig.lua_ls.setup({
     settings = {
         Lua = {}
     }
+})
+
+lspconfig.pyright.setup({
+    on_attach = on_attach,
+    capabilities = capabilities
 })
