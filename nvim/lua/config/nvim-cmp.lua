@@ -41,10 +41,10 @@ cmp.setup({
             maxwidth = 50,
             ellipsis_char = '...',
             menu = {
-                path = '[Path]',
-                nvim_lsp = '[LSP]',
-                luasnip = '[Snippet]',
-                nvim_lsp_signature_help = '[Signature]'
+                path = '[path]',
+                nvim_lsp = '[lsp]',
+                luasnip = '[snippet]',
+                nvim_lsp_signature_help = '[signature]'
             }
         })
     },
