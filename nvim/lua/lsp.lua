@@ -47,7 +47,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 lspconfig.clangd.setup({
     cmd = {
-        'clangd', '--completion-style=detailed', '--all-scopes-completion', '-header-insertion=never'
+        'clangd', '--completion-style=detailed', '--all-scopes-completion', '-header-insertion=never', '--clang-tidy'
     },
     init_options = {
         fallbackFlags = { '-std=c++20', '-I/usr/local/include', '-I/Users/ivokaragyozov/Documents/cp/coding-library' },
