@@ -1,5 +1,7 @@
 local o = vim.o
-local g = vim.g
+
+-- stautline
+o.laststatus = 3
 
 -- no swap files
 o.swapfile = false
