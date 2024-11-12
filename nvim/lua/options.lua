@@ -1,5 +1,9 @@
 local o = vim.o
 
+-- cursor
+o.cursorline = true
+o.cursorlineopt = "number"
+
 -- stautline
 o.laststatus = 3
 
