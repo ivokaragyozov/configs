@@ -3,7 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
 
-local servers = { "lua_ls", "clangd", "pyright" }
+local default_config_servers = { "lua_ls", "pyright" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 local lsp_mappings = function()
@@ -22,6 +22,7 @@ local lsp_mappings = function()
     vim.keymap.set("n", "<leader>f", function()
         vim.lsp.buf.format { async = true }
     end, { desc = "format" })
+    vim.keymap.set("n", "<leader>rn", require "nvchad.lsp.renamer", { desc = "rename" })
 end
 
 local capabilities = nvlsp.capabilities
@@ -31,19 +32,21 @@ capabilities.textDocument.foldingRange = {
 }
 
 -- lsps with default config
-for _, lsp in ipairs(servers) do
+for _, lsp in ipairs(default_config_servers) do
     lspconfig[lsp].setup {
-        on_attach = function()
-            lsp_mappings()
-        end,
+        on_attach = lsp_mappings,
         on_init = nvlsp.on_init,
         capabilities = capabilities,
     }
 end
 
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
+lspconfig.clangd.setup {
+    cmd = {
+        'clangd', '--completion-style=detailed', '--all-scopes-completion', '-header-insertion=never', '--clang-tidy'
+    },
+    init_options = {
+        fallbackFlags = { '-std=c++20', '-I/Users/ivokaragyozov/Documents/cp/coding-library' },
+    },
+    on_attach = lsp_mappings,
+    capabilities = nvlsp.capabilities
+}
