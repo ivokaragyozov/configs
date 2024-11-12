@@ -21,5 +21,13 @@ return {
         config = function()
             require "configs.ufo"
         end
+    },
+
+    {
+        "L3MON4D3/LuaSnip",
+        lazy = false,
+        config = function()
+            require "configs.luasnip"
+        end
     }
 }
