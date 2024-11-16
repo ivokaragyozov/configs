@@ -5,13 +5,14 @@ local t = luasnip.text_node
 vim.keymap.set({ "i" }, "<C-K>", function() luasnip.expand() end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<C-L>", function() luasnip.jump(1) end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<C-J>", function() luasnip.jump(-1) end, { silent = true })
+
 vim.keymap.set({ "i", "s" }, "<C-E>", function()
     if luasnip.choice_active() then
         luasnip.change_choice(1)
     end
 end, { silent = true })
 
--- function to create snippet from a file
+-- Function to create snippet from a file
 local function snippet_from_file(file_path, trigger, description)
     local file = io.open(file_path, "r")
     if not file then
@@ -36,5 +37,5 @@ local function snippet_from_file(file_path, trigger, description)
     })
 end
 
-snippet_from_file("/Users/ivokaragyozov/Documents/cp/coding-library/template.cpp", "cptemp",
-    "Competitive Programming Template")
+local coding_library_path = "/Users/ivokaragyozov/Documents/cp/coding-library"
+snippet_from_file(coding_library_path .. "/template.cpp", "cptemp", "Competitive Programming Template")

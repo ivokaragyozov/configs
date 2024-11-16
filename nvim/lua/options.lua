@@ -1,26 +1,37 @@
-local o = vim.o
+-- use system clipboard
+vim.opt.clipboard = "unnamedplus"
 
--- cursor
-o.cursorline = true
-o.cursorlineopt = "number"
-
--- stautline
-o.laststatus = 3
+-- allow the mouse to be used in nvim
+vim.opt.mouse = "a"
 
 -- no swap files
-o.swapfile = false
+vim.opt.swapfile = false
 
 -- tabs and spaces
-o.expandtab = true
-o.shiftwidth = 4
-o.smartindent = true
-o.tabstop = 4
-o.softtabstop = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
--- mouse
-o.mouse = "a"
+-- ui
+vim.opt.number = true
+vim.opt.showmode = false
 
--- line numbers
-o.number = true
-o.numberwidth = 2
-o.ruler = false
+-- searching
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- indentation
+vim.opt.smartindent = true
+
+-- menus
+vim.opt.completeopt = "menuone,noselect"
+
+-- leaders
+vim.g.mapleader = ","
+vim.g.maplocalleader = " "
+
+-- fold
+vim.g.foldmethod = "syntax"
