@@ -79,7 +79,7 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.pyright.setup({
-    on_attach = lsp_mappings,
+    on_attach = lsp_mappings(),
     capabilities = caps,
     settings = {
         python = {
@@ -87,7 +87,10 @@ lspconfig.pyright.setup({
                 typeCheckingMode = "basic",
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
-            }
+            },
+            formatting = {
+                provider = "black",
+            },
         }
     }
 })

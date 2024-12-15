@@ -22,6 +22,12 @@ require("lazy").setup({
             "neovim/nvim-lspconfig"
         },
     },
+    {
+        "nvimtools/none-ls.nvim",
+        config = function()
+            require("config.none-ls")
+        end,
+    },
 
     -- Completion & Snippets
     {
@@ -155,4 +161,22 @@ require("lazy").setup({
             require("config.nvim-ufo")
         end,
     },
+
+    -- Formatting
+    {
+        'stevearc/conform.nvim',
+        opts = {},
+        config = function()
+            require("conform").setup({
+                log_level = vim.log.levels.DEBUG,
+                formatters_by_ft = {
+                    lua = { "stylua" },
+                    python = {
+                        "black",
+                        command = vim.fn.stdpath("data") .. "/mason/bin/black"
+                    }
+                }
+            })
+        end,
+    }
 })
