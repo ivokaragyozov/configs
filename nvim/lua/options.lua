@@ -15,6 +15,7 @@ vim.opt.expandtab = true
 
 -- ui
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.showmode = false
 
 -- searching
